@@ -402,3 +402,39 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [4] = {ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______)},
 };
 #endif
+
+/* Light LEDs by active layer */
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    hsv_t hsv = {0, 0, 255}; // white
+    // h = 0-255; h in other applications: 0-360 degrees
+
+    switch(get_highest_layer(layer_state|default_layer_state)) {
+        case 4:
+            //hsv = (hsv_t){42, 255, 255}; // yellow
+            hsv = (hsv_t){28, 255, 255}; // orange
+            break;
+        case 3:
+            hsv = (hsv_t){127, 255, 255}; // cyan
+            break;
+        case 2:
+            hsv = (hsv_t){85, 255, 255}; // green
+            break;
+        case 1:
+        case 0:
+        default:
+            hsv = (hsv_t){0, 0, 255}; // white
+            break;
+    }
+
+    if (hsv.v > rgb_matrix_get_val()) {
+        hsv.v = rgb_matrix_get_val();
+    }
+    rgb_t rgb = hsv_to_rgb(hsv);
+
+    for (uint8_t i = led_min; i < led_max; i++) {
+        if (HAS_FLAGS(g_led_config.flags[i], 0x04)) { // 0x01 == LED_FLAG_MODIFIER
+            rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);
+        }
+    }
+    return false;
+}
