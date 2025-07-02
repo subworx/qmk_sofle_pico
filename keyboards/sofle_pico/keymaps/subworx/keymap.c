@@ -408,7 +408,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     hsv_t hsv = {0, 0, 255}; // white
     // h = 0-255; h in other applications: 0-360 degrees
 
-    switch(get_highest_layer(layer_state|default_layer_state)) {
+    switch (get_highest_layer(layer_state|default_layer_state)) {
         case 4:
             //hsv = (hsv_t){42, 255, 255}; // yellow
             hsv = (hsv_t){28, 255, 255}; // orange
@@ -438,3 +438,55 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     }
     return false;
 }
+
+/* layer color change + idle animation + rgb off on timer.
+  doesn't work yet, here for experimentation */
+/*
+#define MATRIX_IDLE             10000
+#define MATRIX_POWER_SAVE       20000
+static uint32_t matrix_last_modified = 0;
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    hsv_t hsv = {0, 0, 255}; // white
+    // h = 0-255; h in other applications: 0-360 degrees
+
+    if (timer_elapsed32(matrix_last_modified) < MATRIX_IDLE ) {
+        //rgb_matrix_enable();
+        switch (get_highest_layer(layer_state|default_layer_state)) {
+            case 4:
+                //hsv = (hsv_t){42, 255, 255}; // yellow
+                hsv = (hsv_t){28, 255, 255}; // orange
+                break;
+            case 3:
+                hsv = (hsv_t){127, 255, 255}; // cyan
+                break;
+            case 2:
+                hsv = (hsv_t){85, 255, 255}; // green
+                break;
+            case 1:
+            case 0:
+            default:
+                hsv = (hsv_t){0, 0, 255}; // white
+                break;
+        }
+
+        if (hsv.v > rgb_matrix_get_val()) {
+            hsv.v = rgb_matrix_get_val();
+        }
+        rgb_t rgb = hsv_to_rgb(hsv);
+
+        for (uint8_t i = led_min; i < led_max; i++) {
+            if (HAS_FLAGS(g_led_config.flags[i], 0x04)) { // 0x01 == LED_FLAG_MODIFIER
+                rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);
+            }
+            matrix_last_modified = timer_read32();
+        }
+    } else if (timer_elapsed32(matrix_last_modified) > MATRIX_POWER_SAVE) {
+        rgb_matrix_disable();
+        matrix_last_modified = timer_read32();
+    } else if (timer_elapsed32(matrix_last_modified) > MATRIX_IDLE) {
+        rgb_matrix_mode(RGB_MATRIX_CYCLE_LEFT_RIGHT);
+        matrix_last_modified = timer_read32();
+    }
+    return false;
+}*/
