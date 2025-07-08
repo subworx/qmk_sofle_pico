@@ -402,8 +402,20 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [4] = {ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______)},
 };
 #endif
+/* fancy encoder mapping: */
+    /* Left Hand */                                                    /* Right Hand */
+    /* Switch between tabs. (Control + Tab). */                        /* Switch between open apps on Mac. (Command + Tab + timer logic) */
+    //[_QWERTY]  = { ENCODER_CCW_CW(S(C(KC_TAB)), C(KC_TAB)),             ENCODER_CCW_CW(CMD_TAB_CCW, CMD_TAB_CW)  },
+    //[_COLEMAK] = { ENCODER_CCW_CW(S(C(KC_TAB)), C(KC_TAB)),             ENCODER_CCW_CW(CMD_TAB_CCW, CMD_TAB_CW)  },
+    /* Scrolls left & right. (Shift + Mouse Wheel Up). */              /* Scrolls up and down. (Page Down & Page Up - mouse wheel scroll incraments are too small) */
+    //[_LOWER]   = { ENCODER_CCW_CW(S(KC_MS_WH_UP), S(KC_MS_WH_DOWN)),    ENCODER_CCW_CW(KC_PGDN, KC_PGUP)  },
+    /* Selects adjacent words. (Command + Shift + Right Arrow). */     /* Jumps to end/start of line. Hold shift to select. (Gui + arrow). */
+    //[_RAISE]   = { ENCODER_CCW_CW(C(S(KC_LEFT)), C(S(KC_RGHT))),        ENCODER_CCW_CW(G(KC_LEFT), G(KC_RGHT))  },
+    /* Scroll through RGB Modes */                                     /* Right & left arrow */
+    //[_ADJUST]  = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD),                   ENCODER_CCW_CW(KC_LEFT, KC_RGHT) },
 
-/* Light LEDs by active layer */
+
+/* Color LEDs by active layer */
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     hsv_t hsv = {0, 0, 255}; // white
     // h = 0-255; h in other applications: 0-360 degrees
