@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         * |------+------+------+------+------+------|       |    |RGB TGL|------+------+------+------+------+------|
         * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShift|
         * `-----------------------------------------/       /     \      \-----------------------------------------'
-        *            | LGUI | LAlt | LCTR |LOWER | /Space  /       \Enter \  |RAISE | RCTR | RAlt | Menu |
+        *            | LCTR | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE | RAlt | Menu | RCTR |
         *            |      |      |      |      |/       /         \      \ |      |      |      |      |
         *            `----------------------------------'           '------''---------------------------'
         */
@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_BSLS,
         KC_TAB,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_QUOT,
         KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX,     RGB_TOG,KC_N,   KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_RSFT,
-                        KC_LGUI,KC_LALT,KC_LCTL, MO(_LOWER), KC_SPC,      KC_ENT, MO(_RAISE), KC_RCTL, KC_RALT, KC_APP
+                        KC_LCTL,KC_LGUI,KC_LALT, MO(_LOWER), KC_SPC,      KC_ENT, MO(_RAISE), KC_RALT, KC_APP, KC_RCTL
         ),
         /*
         * COLEMAK
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         * |------+------+------+------+------+------|       |    |RGB TGL|------+------+------+------+------+------|
         * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   K  |   M  |   ,  |   .  |   /  |RShift|
         * `-----------------------------------------/       /     \      \-----------------------------------------'
-        *            | LGUI | LAlt | LCTR |LOWER | /Spcae  /       \Enter \  |RAISE | RCTR | RAlt | Menu |
+        *            | LCTR | LGUI | LAlt |LOWER | /Spcae  /       \Enter \  |RAISE | RAlt | Menu | RCTR |
         *            |      |      |      |      |/       /         \      \ |      |      |      |      |
         *            `----------------------------------'           '------''---------------------------'
         */
@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,   KC_Q,   KC_W,    KC_F,    KC_P,    KC_G,                      KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN,  KC_BSLS,
         KC_TAB,   KC_A,   KC_R,    KC_S,    KC_T,    KC_D,                      KC_H,    KC_N,    KC_E,    KC_I,    KC_O,  KC_QUOT,
         KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX,     RGB_TOG,KC_K,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_RSFT,
-                      KC_LGUI,KC_LALT,KC_LCTL,MO(_LOWER), KC_SPC,         KC_ENT, MO(_RAISE), KC_RCTL, KC_RALT, KC_APP
+                      KC_LCTL,KC_LGUI,KC_LALT,MO(_LOWER), KC_SPC,         KC_ENT, MO(_RAISE), KC_RALT, KC_APP, KC_RCTL
         ),
         /* LOWER
         * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         * |------+------+------+------+------+------|       |    |RGB TGL|------+------+------+------+------+------|
         * | Shift|  =   |  -   |  +   |   {  |   }  |-------|    |-------|   [  |   ]  |   ;  |   :  |   \  | Shift|
         * `-----------------------------------------/       /     \      \-----------------------------------------'
-        *            | LGUI | LAlt | LCTR |LOWER | /Space  /       \Enter \  |RAISE | RCTR | RAlt | Menu |
+        *            | LCTR | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE | RAlt | Menu | RCTR |
         *            |      |      |      |      |/       /         \      \ |      |      |      |      |
         *            `----------------------------------'           '------''---------------------------'
         */
@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         * |------+------+------+------+------+------|       |    |RGB TGL|------+------+------+------+------+------|
         * |Shift | Undo |  Cut | Copy | Paste| Print|-------|    |-------|      | LStr |      | LEnd |      | Shift|
         * `-----------------------------------------/       /     \      \-----------------------------------------'
-        *            | LGUI | LAlt | LCTR |LOWER | /Space  /       \Enter \  |RAISE | RCTR | RAlt | Menu |
+        *            | LCTR | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE | RAlt | Menu | RCTR |
         *            |      |      |      |      |/       /         \      \ |      |      |      |      |
         *            `----------------------------------'           '------''---------------------------'
         */
@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         * |------+------+------+------+------+------|       |    |RGB TGL|------+------+------+------+------+------|
         * |      |      |      |      |      |      |-------|    |-------|      | PREV | PLAY | NEXT |      |      |
         * `-----------------------------------------/       /     \      \-----------------------------------------'
-        *            | LGUI | LAlt | LCTR |LOWER | /Space  /       \Enter \  |RAISE | RCTR | RAlt | RGUI |
+        *            | LCTR | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE | RAlt | Menu | RCTR |
         *            |      |      |      |      |/       /         \      \ |      |      |      |      |
         *            `----------------------------------'           '------''---------------------------'
         */
@@ -240,11 +240,11 @@ bool oled_task_user(void) {
         if (!finished_logo) {
             finished_logo = true;
             /* Clears the OLED. */
-            oled_clear(); 
+            oled_clear();
         }
         if (is_keyboard_master()) {
             /* Renders the current keyboard state (layer, lock, caps, scroll, etc) */
-            render_status(); 
+            render_status();
         } else {
             render_logo();
         }
@@ -395,10 +395,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [0] = {ENCODER_CCW_CW(MS_WHLU, MS_WHLD), ENCODER_CCW_CW(RGB_VAD, RGB_VAI)}, 
-    [1] = {ENCODER_CCW_CW(MS_WHLU, MS_WHLD), ENCODER_CCW_CW(RGB_VAD, RGB_VAI)}, 
-    [2] = {ENCODER_CCW_CW(MS_WHLL, MS_WHLR), ENCODER_CCW_CW(_______, _______)}, 
-    [3] = {ENCODER_CCW_CW(MS_WHLL, MS_WHLR), ENCODER_CCW_CW(_______, _______)}, 
+    [0] = {ENCODER_CCW_CW(MS_WHLU, MS_WHLD), ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+    [1] = {ENCODER_CCW_CW(MS_WHLU, MS_WHLD), ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+    [2] = {ENCODER_CCW_CW(MS_WHLL, MS_WHLR), ENCODER_CCW_CW(_______, _______)},
+    [3] = {ENCODER_CCW_CW(MS_WHLL, MS_WHLR), ENCODER_CCW_CW(_______, _______)},
     [4] = {ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______)},
 };
 #endif
@@ -416,7 +416,8 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
 
 /* Color LEDs by active layer */
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+/* working layer change colors, static 4 colors, no animation */
+/*bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     hsv_t hsv = {0, 0, 255}; // white
     // h = 0-255; h in other applications: 0-360 degrees
 
@@ -449,7 +450,41 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
     }
     return false;
-}
+}*/
+
+/* not working, test to set solid color matrix animation on layer chgange 
+   and return to original animation on release */
+/*static uint8_t current_mode;
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    //hsv_t hsv = {0, 0, 255}; // white
+    // h = 0-255; h in other applications: 0-360 degrees
+    current_mode = rgb_matrix_get_mode();
+
+    switch (get_highest_layer(layer_state|default_layer_state)) {
+        case 4:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+            //hsv = (hsv_t){28, 255, 255}; // orange
+            rgb_matrix_sethsv_noeeprom(HSV_GOLD);
+            break;
+        case 3:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+            //hsv = (hsv_t){127, 255, 255}; // cyan
+            rgb_matrix_sethsv_noeeprom(HSV_CYAN);
+            break;
+        case 2:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+            //hsv = (hsv_t){85, 255, 255}; // green
+            rgb_matrix_sethsv_noeeprom(HSV_GREEN);
+            break;
+        case 1:
+        case 0:
+        default:
+            rgb_matrix_mode(current_mode);
+            break;
+    }
+    return false;
+}*/
+
 
 /* layer color change + idle animation + rgb off on timer.
   doesn't work yet, here for experimentation */
