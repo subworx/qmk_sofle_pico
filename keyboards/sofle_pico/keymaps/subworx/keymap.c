@@ -185,7 +185,6 @@ static void render_status(void) {
     led_t led_usb_state = host_keyboard_led_state();
     oled_write_ln_P(PSTR("CAPSLOCK"), led_usb_state.caps_lock);
     oled_write_ln_P(PSTR("Num Lock"), led_usb_state.num_lock);
-    oled_write_ln_P(PSTR("ScrlLock"), led_usb_state.scroll_lock);
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
